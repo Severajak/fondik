@@ -1,0 +1,225 @@
+     <!-- Sticky Skyscraper script -->
+    <script>
+    function checkIfReady() {
+        if(!document.querySelector('.skyscraperholder') || !document.querySelector('.skyscraper')) {
+           window.setTimeout(checkIfReady, 100); /* this checks the flag every 100 milliseconds*/
+        } else {
+            var holder = document.querySelector('.skyscraperholder');
+            var sky = document.querySelector('.skyscraper');
+            
+            window.addEventListener('scroll', function() {
+              stick(holder, sky);
+            });
+            
+            function stick(holder, sky) {
+              var rect = holder.getBoundingClientRect();
+              if (rect.bottom > 600 && rect.top < 0) {
+                sky.style.position = 'fixed';
+                sky.style.top = '25px';
+                sky.style.bottom = '';
+              } else if (rect.bottom <= 600) {
+                sky.style.position = 'absolute';
+                sky.style.top = '';
+                sky.style.bottom = '0';
+              } else if (rect.top >= 0) {
+                sky.style.position = 'absolute';
+                sky.style.top = '25px';
+                sky.style.bottom = '';
+              }
+            }
+        }
+    }
+    checkIfReady();
+    </script>
+    <!-- SSP Script -->
+    <script src="https://ssp.imedia.cz/static/js/ssp.js"></script>
+    <!-- See if everything is ready and then call ads -->
+    <script>
+    // následující blok vložte do stránky kamkoli za připojení výdejového a měřicího
+    // skriptu a definici reklamních zón (elementy pro reklamu musí v okamžiku volání
+    // metody getAds() ve zdrojovém kódu stránky fyzicky existovat)
+    // metoda getAds() zajišťuje získání reklamy z reklamního systému a její vykreslení
+    // do stránky; parametry jednotlivých zón jsou definované v níže uvedeném poli,
+    // které je argumentem této metody
+    var adCallCounter = 0;
+    function checkMobileAdCall() {
+        if(
+            document.getElementById('ssp-zone-118584') &&
+            document.getElementById('ssp-zone-118589') &&
+            document.getElementById('ssp-zone-118594') &&
+            sssp
+        ) {
+            console.log('calling mobile ads');
+            sssp.getAds([
+                {
+                    "zoneId": 118584,			// unikátní identifikátor reklamní zóny
+                    "id": "ssp-zone-118584",	// ID elementu, do kterého se vypisuje reklama
+                    "width": 480,			// maximální šířka reklamy v zóně
+                    "height": 480			// maximální výška reklamy v zóně
+                },
+                {
+                    "zoneId": 118589,			// unikátní identifikátor reklamní zóny
+                    "id": "ssp-zone-118589",	// ID elementu, do kterého se vypisuje reklama
+                    "width": 300,			// maximální šířka reklamy v zóně
+                    "height": 300			// maximální výška reklamy v zóně
+                },
+                {
+                    "zoneId": 118594,			// unikátní identifikátor reklamní zóny
+                    "id": "ssp-zone-118594",	// ID elementu, do kterého se vypisuje reklama
+                    "width": 300,			// maximální šířka reklamy v zóně
+                    "height": 300			// maximální výška reklamy v zóně
+                }
+            ]);
+        } else {
+            adCallCounter++;
+            if(adCallCounter<5) {window.setTimeout(checkMobileAdCall, 500);} /* this checks the flag every 100 milliseconds*/
+        }
+    }
+    function checkAdCall() {
+        if(
+            document.getElementById('ssp-zone-118559') &&
+            document.getElementById('ssp-zone-118564') &&
+            document.getElementById('ssp-zone-118569') &&
+            document.getElementById('ssp-zone-118574') &&
+            document.getElementById('ssp-zone-118579') &&
+            sssp
+        ) {
+            document.querySelector('.post-content-text').style.padding = '20px 325px 0 25px';
+            document.getElementById('ssp-zone-118559').style.display = 'block';
+            document.getElementById('ssp-zone-118564').style.display = 'block';
+            document.getElementById('ssp-zone-118569').style.display = 'block';
+            document.getElementById('ssp-zone-118574').style.display = 'block';
+            document.getElementById('ssp-zone-118579').style.display = 'block';
+            var dropDowns = Array.prototype.slice.call(document.querySelectorAll("[class^='dropdown-section']"), 0);
+            dropDowns.forEach(function(elem) {
+                elem.style.marginTop = '350px';
+            });
+            console.log('calling ads');
+    /* START Branding block */
+    if (window.innerWidth >= 1366) {
+    document.body.insertAdjacentHTML('afterbegin', '<div id="ssp-branding-118559"></div>');
+    // Check if branding and set layout
+    function handleResponse(advert, data) {
+      if (advert.width === 2000) {
+        var leaderboard = document.querySelector('.leaderboardwrapper');
+        var bgDiv = document.querySelector('.post-content-text');
+        var marginDiv = document.querySelector('.post-content');
+        var topDiv = document.querySelector('.top');
+        var goUp = document.querySelector('.go-up-section');
+        var bottomRectangle = document.getElementById('ssp-zone-118579');
+    // fix broken dropDowns
+    var dropDown = [document.querySelector('.dropdown-section-1'),document.querySelector('.dropdown-section-2'),document.querySelector('.dropdown-section-3')];
+    dropDown.forEach((drop) => {
+      drop.style.marginTop = '0'
+      drop.style.position = '';
+      drop.parentElement.style.opacity = 0;
+    });
+    var buttons = document.querySelectorAll("[data-ix^='show-dropdown-']");
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        dropDown.forEach((drop) => {
+          drop.parentElement.style.opacity = 0;
+          setTimeout(() => {
+            drop.style.position = '';
+          }, 200); 
+        });
+        if (!(dropDown[index].style.display == 'block')) {
+          setTimeout(() => {
+            dropDown[index].parentElement.style.opacity = 1;
+            dropDown[index].style.position = 'relative';
+          }, 200);
+        }
+      });
+    });
+    // end of dropDowns fix
+        if (marginDiv) {
+          marginDiv.parentElement.style.width = '1100px';
+          marginDiv.style.marginTop = '180px';
+        } else {
+          document.querySelectorAll('.post-content-text').forEach(function(elem) {
+              var categoryContainer = elem.parentElement;
+              categoryContainer.style.width = '1060px';
+              categoryContainer.style.margin = '180px auto';
+          });
+        }
+        if (document.querySelectorAll('.post-content-text').length > 1) {
+          var brokenCategory = document.querySelectorAll('.post-content-text')[1];
+          brokenCategory.style.top = '180px';
+          brokenCategory.style.background = 'white';
+          brokenCategory.style.paddingLeft = '25px';
+        }
+        leaderboard.style.display = 'none';
+        bgDiv.style.background = 'white';
+        topDiv.style.width = '1060px';
+        topDiv.style.margin = 'auto';
+        topDiv.style.transform = 'translateY(226px)';
+        goUp.style.padding = '30px';
+        goUp.style.width = '1060px';
+        goUp.style.margin = 'auto';
+        goUp.style.background = 'white';
+        bottomRectangle.style.transform = 'translateX(-20px)';
+      }
+      // Let ssp write ads
+      return sssp.writeAd(advert, data);
+    }
+      // Ask for branding
+      var adZone = {
+        zoneId: 118559,
+        width: 2000,
+        id: "ssp-branding-118559",
+        callback: handleResponse,
+        elements: [
+          {id: "ssp-zone-118559", width: 970},
+          {id: "ssp-branding-118559", width: 2000, height: 1400}
+        ]
+      };
+      // Anounce the branding
+      console.log('calling branding');
+    } else {
+      // Ask for leaderboard
+      var adZone = {
+        zoneId: 118559, 
+        width: 970,
+        height: 210,  
+        id: "ssp-zone-118559"
+      }
+    }
+    var adRequest = [
+      {
+          "zoneId": 118564,
+          "id": "ssp-zone-118564",
+          "width": 300,
+          "height": 300
+      },
+      {
+          "zoneId": 118569,
+          "id": "ssp-zone-118569",
+          "width": 300,
+          "height": 600
+      },
+      {
+          "zoneId": 118574,
+          "id": "ssp-zone-118574",
+          "width": 480,
+          "height": 300
+      },
+      {
+          "zoneId": 118579,
+          "id": "ssp-zone-118579",
+          "width": 970,
+          "height": 310
+      }
+    ];
+    adRequest[4] = adZone;
+    sssp.getAds(adRequest);
+        } else {
+            adCallCounter++;
+            if(adCallCounter<5) {window.setTimeout(checkAdCall, 500);} /* this checks the flag every 100 milliseconds*/
+        }
+    }
+    if(window.innerWidth >= 990) {
+        checkAdCall();
+    } else if (window.innerWidth <= 989) {
+        checkMobileAdCall();
+    }
+    </script>

@@ -1,0 +1,25 @@
+{
+  "name": "fondik",
+  "version": "1.0.0",
+  "description": "Codebase for the site www.fondik.cz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaveVodrazka/fondik.git"
+  },
+  "keywords": [],
+  "author": "David Vodrážka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaveVodrazka/fondik/issues"
+  },
+  "homepage": "https://github.com/DaveVodrazka/fondik#readme",
+  "devDependencies": {
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
+  }
+}
