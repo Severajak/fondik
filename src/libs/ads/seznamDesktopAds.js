@@ -8,7 +8,7 @@ const desktopAds = () => {
     document.getElementById('ssp-zone-118569') &&
     document.getElementById('ssp-zone-118574') &&
     document.getElementById('ssp-zone-118579') &&
-    sssp
+    typeof(sssp) !== 'undefined'
   ) {
     document.querySelector('.post-content-text').style.padding = '20px 325px 0 25px';
     document.getElementById('ssp-zone-118559').style.display = 'block';

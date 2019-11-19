@@ -44,4 +44,4 @@ const utmToLinks = () => {
 	});
 };
 
-export default utmToLinks;
+export {utmToLinks, getUtm};
