@@ -3,3 +3,6 @@ node_modules
 
 # dist - should be built rather then pulled
 dist
+
+# server credential are a secret!
+serverCredentials.json
