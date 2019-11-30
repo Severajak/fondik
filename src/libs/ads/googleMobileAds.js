@@ -29,6 +29,7 @@ const appendAd = (ad, zone) => {
 
 const deploayMobileAds = () => {
 	if (zones.mobileSquareTop && zones.mobileSquareMid && zones.mobileSquareBot) {
+		console.log('calling mobile ads')
 		const mobileSquareTop = ads.mobileSquareTop;
 		appendAd(mobileSquareTop, zones.mobileSquareTop);
 		const mobileSquareMid = ads.mobileSquareMid;

@@ -5,7 +5,7 @@ const checkIfReady = (options) => {
 		const sky = document.querySelector('.skyscraper');
 		window.addEventListener('scroll', () => {
 			stick(holder, sky, options);
-		});
+		}, {passive: true});
 	} else if ( counter < 20 ) {
 		window.setTimeout(checkIfReady, 100); // this checks the flag every 100 milliseconds
 		counter++;

@@ -32,14 +32,22 @@ const deploayDesktopAds = () => {
 		// make place for skyscrapper
 		document.querySelector('.post-content-text').style.padding = '20px 325px 0 25px';
 		// make sure sky doesn't go over bottom rect
-		document.querySelector('.skyscraperholder').style.bottom = '300px';
+		// document.querySelector('.skyscraperholder').style.bottom = '300px';
 		// no topSponzor so this
 		document.querySelector('.skyscraperholder').style.top = 0;
+
+		const textBox = document.querySelector('.post-description-box');
+		const textBoxWidth = textBox && textBox.offsetWidth;
+
+		// if small display, make sure rectangles don't overlap with sky
+		if (textBoxWidth) {
+			zones.rectangle.style.width = textBoxWidth + 'px';
+			zones.rectangle2.style.width = textBoxWidth + 'px';
+		}
 
 		const rectangle = ads.rectangle;
 		appendAd(rectangle, zones.rectangle);
 		const rectangle2 = ads.rectangle2;
-		zones.rectangle2.style.width = '750px';
 		appendAd(rectangle2, zones.rectangle2);
 		const skyscrapper = ads.skyscrapper;
 		appendAd(skyscrapper, zones.skyscrapper);
