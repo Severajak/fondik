@@ -1,12 +1,22 @@
 const mobileAds = () => {
   let adCallCounter = 0;
+  const squares = [
+    document.getElementById('ssp-zone-118584'),
+    document.getElementById('ssp-zone-118589'),
+    document.getElementById('ssp-zone-118594')
+  ];
   if (
-    document.getElementById('ssp-zone-118584') &&
-    document.getElementById('ssp-zone-118589') &&
-    document.getElementById('ssp-zone-118594') &&
+    squares[0] &&
+    squares[1] &&
+    squares[2] &&
     sssp
   ) {
-    console.log('calling mobile ads');
+    // webflow strugles with hiding elements so I had to set height and margin-bottom to 0
+    squares.forEach((square) => {
+      square.style.height = '300px';
+      square.style.marginBottom = '75px';
+    });
+    console.log('Calling Seznam mobile ads');
     sssp.getAds([
       {
         "zoneId": 118584,			// unikátní identifikátor reklamní zóny
@@ -29,7 +39,7 @@ const mobileAds = () => {
     ]);
   } else {
     adCallCounter++;
-    if (adCallCounter < 5) { window.setTimeout(mobileAds, 500); } /* this checks the flag every 100 milliseconds*/
+    if (adCallCounter < 5) { window.setTimeout(mobileAds, 500); } // this checks the flag every 500 milliseconds
   }
 }
 

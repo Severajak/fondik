@@ -8,9 +8,8 @@ const desktopAds = () => {
     document.getElementById('ssp-zone-118569') &&
     document.getElementById('ssp-zone-118574') &&
     document.getElementById('ssp-zone-118579') &&
-    typeof(sssp) !== 'undefined'
+    sssp
   ) {
-    document.querySelector('.post-content-text').style.padding = '20px 325px 0 25px';
     document.getElementById('ssp-zone-118559').style.display = 'block';
     document.getElementById('ssp-zone-118564').style.display = 'block';
     document.getElementById('ssp-zone-118569').style.display = 'block';
@@ -62,10 +61,11 @@ const desktopAds = () => {
       }
       adRequest.push(leaderboardRequest);
     }
+    console.log('Calling Seznam desktop ads');
     sssp.getAds(adRequest);
   } else {
     adCallCounter++;
-    if (adCallCounter < 5) { window.setTimeout(desktopAds, 500); } /* this checks the flag every 100 milliseconds*/
+    if (adCallCounter < 5) { window.setTimeout(desktopAds, 500); } // this checks the flag every 500 milliseconds
   }
 }
 

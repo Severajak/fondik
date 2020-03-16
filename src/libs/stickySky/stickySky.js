@@ -3,9 +3,12 @@ const checkIfReady = (options) => {
   if ( document.querySelector('.skyscraperholder') && document.querySelector('.skyscraper') ) {
 		const holder = document.querySelector('.skyscraperholder');
 		const sky = document.querySelector('.skyscraper');
+		// make space for sky
+		document.querySelector('.post-content-text').style.padding = '20px 325px 0 25px';
 		window.addEventListener('scroll', () => {
 			stick(holder, sky, options);
 		});
+		return sky;
 	} else if ( counter < 20 ) {
 		window.setTimeout(checkIfReady, 100); // this checks the flag every 100 milliseconds
 		counter++;

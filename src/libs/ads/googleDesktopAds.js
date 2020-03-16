@@ -29,8 +29,6 @@ const appendAd = (ad, zone) => {
 
 const deploayDesktopAds = () => {
 	if (zones.rectangle && zones.rectangle2 && zones.skyscrapper ) {
-		// make place for skyscrapper
-		document.querySelector('.post-content-text').style.padding = '20px 325px 0 25px';
 		// make sure sky doesn't go over bottom rect
 		document.querySelector('.skyscraperholder').style.bottom = '300px';
 		// no topSponzor so this
