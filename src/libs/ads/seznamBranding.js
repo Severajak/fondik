@@ -75,6 +75,8 @@ const handleResponse = (advert, data) => {
     goUp.style.background = 'white';
     bottomRectangle.style.transform = 'translateX(-20px)';
   }
+  const leaderElem = document.getElementById('ssp-zone-118559');
+  leaderElem.style.display = 'block';
   // Let ssp write ads
   return sssp.writeAd(advert, data);
 }

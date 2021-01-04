@@ -35,6 +35,7 @@ const deploayMobileAds = () => {
 		appendAd(mobileSquareMid, zones.mobileSquareMid);
 		const mobileSquareBot = ads.mobileSquareBot;
 		appendAd(mobileSquareBot, zones.mobileSquareBot);
+		console.log('Google mobile ads deployed');
 	}
 };
 

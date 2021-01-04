@@ -28,17 +28,21 @@ const appendAd = (ad, zone) => {
 };
 
 const deploayDesktopAds = () => {
-	if (zones.rectangle && zones.rectangle2 && zones.skyscrapper ) {
+	if (zones.rectangle) {
+		const rectangle = ads.rectangle;
+		appendAd(rectangle, zones.rectangle);
+	}
+	if (zones.rectangle2) {
+		const rectangle2 = ads.rectangle2;
+		const newWidth = window.innerWidth < 1135 ? '600px' : '750px';
+		zones.rectangle2.style.width = newWidth;
+		appendAd(rectangle2, zones.rectangle2);
+	}
+	if (zones.skyscrapper) {
 		// make sure sky doesn't go over bottom rect
 		document.querySelector('.skyscraperholder').style.bottom = '300px';
 		// no topSponzor so this
 		document.querySelector('.skyscraperholder').style.top = 0;
-
-		const rectangle = ads.rectangle;
-		appendAd(rectangle, zones.rectangle);
-		const rectangle2 = ads.rectangle2;
-		zones.rectangle2.style.width = '750px';
-		appendAd(rectangle2, zones.rectangle2);
 		const skyscrapper = ads.skyscrapper;
 		appendAd(skyscrapper, zones.skyscrapper);
 	}
