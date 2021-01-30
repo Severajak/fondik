@@ -1,5 +1,6 @@
 import callAds from './libs/ads/callAds.js';
 import googleAds from './libs/ads/googleAds.js';
+import { debug } from './libs/debug.js';
 import { utmToLinks, getUtm } from './libs/utm/persistentUtm.js';
 /* custom bannery ne
 import desktopSky from './libs/customBanners/desktopSky.js';
@@ -18,16 +19,16 @@ const setupAdvertisment = () => {
 	const countPaths = (pathname.match(/\//g) || []).length;
 	// if less then 2 "/" -> not an article, either homepage or section
 	if (countPaths < 2) {
-		console.log('HP or section - not calling any ads');
+		debug('HP or section - not calling any ads');
 		return;
 	}
 
 	const utm = getUtm();
 	if (utm && utm.indexOf('utm_source=www.seznam.cz') !== -1) {
-		console.log('seznam ads');
+		debug('seznam ads');
 		callAds();
 	} else {
-		console.log('google ads');
+		debug('google ads');
 		googleAds();
 	}
 };

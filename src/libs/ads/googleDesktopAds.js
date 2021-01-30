@@ -1,33 +1,18 @@
 import ads from '../adsByGoogle/adCodes.js';
-
-const zones = {
-	rectangle: document.getElementById('ssp-zone-118579'),
-	rectangle2: document.getElementById('ssp-zone-118574'),
-	skyscrapper: document.getElementById('ssp-zone-118569'),
-};
-
-const appendAd = (ad, zone) => {
-	const script = document.createElement('script');
-	const ins = document.createElement('ins');
-
-	script.src = ad.script;
-	ad.attributes.forEach((attribute) => {
-		ins.setAttribute(attribute.name, attribute.value);
-	});
-
-	zone.style.display = 'block';
-
-	zone.appendChild(ins);
-	zone.appendChild(script);
-	try {
-		(adsbygoogle = window.adsbygoogle || []).push({});
-	} catch (e) {
-		console.warn('Failed to call the Google thing (desktopAds).');
-		console.warn(e);
-	}
-};
+import { debug } from '../debug.js';
+import { appendAd } from '../adsByGoogle/appendAd.js';
+import { fixLeaderboard } from '../leaderboard/leaderboard.js';
 
 const deploayDesktopAds = () => {
+	const zones = {
+		rectangle: document.getElementById('ssp-zone-118579'),
+		rectangle2: document.getElementById('ssp-zone-118574'),
+		skyscrapper: document.getElementById('ssp-zone-118569'),
+		topSponzor: document.getElementById('ssp-zone-118564'),
+		leaderBoard: document.getElementById('ssp-zone-118559'),
+	};
+	debug('Deploying Google desktop ads to these zones:');
+	debug(zones);
 	if (zones.rectangle) {
 		const rectangle = ads.rectangle;
 		appendAd(rectangle, zones.rectangle);
@@ -39,12 +24,21 @@ const deploayDesktopAds = () => {
 		appendAd(rectangle2, zones.rectangle2);
 	}
 	if (zones.skyscrapper) {
-		// make sure sky doesn't go over bottom rect
-		document.querySelector('.skyscraperholder').style.bottom = '300px';
-		// no topSponzor so this
-		document.querySelector('.skyscraperholder').style.top = 0;
+		debug('Deploying Skyscraper');
 		const skyscrapper = ads.skyscrapper;
 		appendAd(skyscrapper, zones.skyscrapper);
+	}
+	if (zones.topSponzor) {
+		debug('Deploying TopSponzor');
+		zones.topSponzor.style.left = 0;
+		const topSponzor = ads.topSponzor;
+		appendAd(topSponzor, zones.topSponzor);
+	}
+	if (zones.leaderBoard) {
+		debug('Deploying leaderBoard');
+		const leaderBoard = ads.leaderBoard;
+		fixLeaderboard();
+		appendAd(leaderBoard, zones.leaderBoard);
 	}
 };
 

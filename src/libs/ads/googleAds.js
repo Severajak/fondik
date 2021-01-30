@@ -1,13 +1,13 @@
 import googleDesktopAds from './googleDesktopAds';
 import googleMobileAds from './googleMobileAds';
-import stickySky from '../stickySky/stickySky.js';
+import { setupSky } from '../stickySky/stickySky.js';
 
 const callGoogleAds = () => {
 	let count = 0;
 	const timer = window.setInterval(() => {
 		if (window.adsbygoogle) {
 			if (window.innerWidth >= 990) {
-				stickySky();
+				setupSky({ side: 'left', top: 325 });
 				googleDesktopAds();
 				clearInterval(timer);
 			} else {

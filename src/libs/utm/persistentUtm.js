@@ -20,9 +20,12 @@ const utmToLinks = () => {
 	const arrOfUtms = utmToArr(utm);
 	let utmToAppend = '';
 	arrOfUtms.forEach((attribute, index, array) => {
-		if (attribute.includes('utm_source=') || attribute.includes('utm_medium=')) {
+		if (
+			attribute.includes('utm_source=') ||
+			attribute.includes('utm_medium=')
+		) {
 			utmToAppend = utmToAppend.concat(attribute);
-			if (index != (array.length - 1)) {
+			if (index != array.length - 1) {
 				utmToAppend = utmToAppend.concat('&');
 			}
 		}
@@ -39,9 +42,9 @@ const utmToLinks = () => {
 				link.href = currentUrl + '&' + utmToAppend;
 			} else {
 				link.href = currentUrl + '?' + utmToAppend;
-			}	
+			}
 		}
 	});
 };
 
-export {utmToLinks, getUtm};
+export { utmToLinks, getUtm };
