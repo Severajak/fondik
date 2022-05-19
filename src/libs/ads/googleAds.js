@@ -7,7 +7,7 @@ const callGoogleAds = () => {
 	const timer = window.setInterval(() => {
 		if (window.adsbygoogle) {
 			if (window.innerWidth >= 990) {
-				setupSky({ side: 'left', top: 325 });
+				setupSky({ side: 'right', top: 325 });
 				googleDesktopAds();
 				clearInterval(timer);
 			} else {
