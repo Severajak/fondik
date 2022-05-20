@@ -3,7 +3,6 @@ import { zones } from '../adsByGoogle/adZones.js';
 import { debug } from '../debug.js';
 import { appendAd } from '../adsByGoogle/appendAd.js';
 import { fixLeaderboard } from '../leaderboard/leaderboard.js';
-import { setupSky } from '../stickySky/stickySky.js';
 import {
 	LEADERBOARD,
 	RECTANGLE,
@@ -28,11 +27,6 @@ const apendListOfAds = (activeZones) => {
 
 const deployDesktopAds = () => {
 	const activeZones = [RECTANGLE, RECTANGLE2, SKY_SCRAPER];
-
-	if (activeZones.indexOf(SKY_SCRAPER) > -1) {
-		setupSky({ side: 'right', top: 0 });
-	}
-
 	debug('Deploying Google desktop ads to these zones:');
 	debug(activeZones);
 
