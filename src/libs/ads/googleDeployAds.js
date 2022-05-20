@@ -13,9 +13,8 @@ import {
 	MOBILE_BOT,
 } from '../../constants.js';
 
-const zones = getZones();
-
 const apendListOfAds = (activeZones) => {
+  const zones = getZones();
 	activeZones.forEach((zoneName) => {
     const adCode = adCodes[zoneName];
     const zone = zones[zoneName];
@@ -28,6 +27,7 @@ const apendListOfAds = (activeZones) => {
 };
 
 const deployDesktopAds = () => {
+  const zones = getZones();
 	const activeZones = [RECTANGLE, RECTANGLE2, SKY_SCRAPER];
 	debug('Deploying Google desktop ads to these zones:');
 	debug(activeZones);
