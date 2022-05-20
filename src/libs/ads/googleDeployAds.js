@@ -1,5 +1,5 @@
 import { adCodes } from '../adsByGoogle/adCodes.js';
-import { zones } from '../adsByGoogle/adZones.js';
+import { getZones } from '../adsByGoogle/adZones.js';
 import { debug } from '../debug.js';
 import { appendAd } from '../adsByGoogle/appendAd.js';
 import { fixLeaderboard } from '../leaderboard/leaderboard.js';
@@ -12,6 +12,8 @@ import {
 	MOBILE_MID,
 	MOBILE_BOT,
 } from '../../constants.js';
+
+const zones = getZones();
 
 const apendListOfAds = (activeZones) => {
 	activeZones.forEach((zoneName) => {

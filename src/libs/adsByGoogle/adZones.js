@@ -20,7 +20,7 @@ const zoneMap = [
 	[MOBILE_BOT, 'ssp-zone-118594'],
 ];
 
-export const zones = zoneMap.reduce((prev, cur) => {
+export const getZones = () => zoneMap.reduce((prev, cur) => {
   try {
     prev[cur[0]] = document.getElementById(cur[1]);
   } catch(e) {
