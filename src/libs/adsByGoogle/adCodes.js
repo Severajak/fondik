@@ -87,32 +87,32 @@ export default {
 			},
 		],
 	},
-	topSponzor: {
-		attributes: [
-			{
-				name: 'style',
-				value: 'display:inline-block;width:300px;height:300px',
-			},
+	// topSponzor: {
+	// 	attributes: [
+	// 		{
+	// 			name: 'style',
+	// 			value: 'display:inline-block;width:300px;height:300px',
+	// 		},
 
-			{
-				name: 'data-ad-slot',
-				value: '9201387779',
-			},
-		],
-	},
-	leaderBoard: {
-		attributes: [
-			{
-				name: 'style',
-				value: 'display:inline-block;width:970px;height:210px',
-			},
+	// 		{
+	// 			name: 'data-ad-slot',
+	// 			value: '9201387779',
+	// 		},
+	// 	],
+	// },
+	// leaderBoard: {
+	// 	attributes: [
+	// 		{
+	// 			name: 'style',
+	// 			value: 'display:inline-block;width:970px;height:210px',
+	// 		},
 
-			{
-				name: 'data-ad-slot',
-				value: '5429663725',
-			},
-		],
-	},
+	// 		{
+	// 			name: 'data-ad-slot',
+	// 			value: '5429663725',
+	// 		},
+	// 	],
+	// },
 	mobileSquareTop: {
 		attributes: [
 			{
