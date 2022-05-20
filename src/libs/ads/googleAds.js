@@ -1,19 +1,15 @@
-import googleDesktopAds from './googleDesktopAds';
-import googleMobileAds from './googleMobileAds';
-import { setupSky } from '../stickySky/stickySky.js';
+import { deployDesktopAds, deployMobileAds } from './googleDeployAds';
 
-const callGoogleAds = () => {
+export const callGoogleAds = () => {
 	let count = 0;
 	const timer = window.setInterval(() => {
 		if (window.adsbygoogle) {
 			if (window.innerWidth >= 990) {
-				setupSky({ side: 'right', top: 0 });
-				googleDesktopAds();
-				clearInterval(timer);
+				deployDesktopAds();
 			} else {
-				googleMobileAds();
-				clearInterval(timer);
+				deployMobileAds();
 			}
+      clearInterval(timer);
 		}
 		if (count > 10) {
 			clearInterval(timer);
@@ -21,5 +17,3 @@ const callGoogleAds = () => {
 		count++;
 	}, 100);
 };
-
-export default callGoogleAds;

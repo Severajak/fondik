@@ -1,5 +1,5 @@
 import seznamAds from './libs/ads/seznamAds.js';
-import googleAds from './libs/ads/googleAds.js';
+import { callGoogleAds } from './libs/ads/googleAds.js';
 import { debug } from './libs/debug.js';
 import { utmToLinks, getUtm } from './libs/utm/persistentUtm.js';
 /* custom bannery ne
@@ -29,7 +29,7 @@ const setupAdvertisment = () => {
 		seznamAds();
 	} else {
 		debug('google ads');
-		googleAds();
+		callGoogleAds();
 	}
 };
 
