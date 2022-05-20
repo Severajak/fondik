@@ -16,8 +16,12 @@ import {
 
 const apendListOfAds = (activeZones) => {
 	activeZones.forEach((zoneName) => {
-		if (adCodes[zoneName] && zones[zoneName]) {
-			appendAd(adCodes[zoneName], zones[zoneName]);
+    const adCode = adCodes[zoneName];
+    const zone = zones[zoneName];
+    debug('Deploying Google ads:');
+    debug({zoneName, adCode, zone});
+		if (adCode && zone) {
+			appendAd(adCode, zone);
 		}
 	});
 };
