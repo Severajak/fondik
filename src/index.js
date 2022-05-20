@@ -1,4 +1,4 @@
-import callAds from './libs/ads/callAds.js';
+import seznamAds from './libs/ads/seznamAds.js';
 import googleAds from './libs/ads/googleAds.js';
 import { debug } from './libs/debug.js';
 import { utmToLinks, getUtm } from './libs/utm/persistentUtm.js';
@@ -26,7 +26,7 @@ const setupAdvertisment = () => {
 	const utm = getUtm();
 	if (utm && utm.indexOf('utm_source=www.seznam.cz') !== -1) {
 		debug('seznam ads');
-		callAds();
+		seznamAds();
 	} else {
 		debug('google ads');
 		googleAds();

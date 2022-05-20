@@ -2,7 +2,7 @@ import callDesktop from './seznamDesktopAds.js';
 import callMobile from './seznamMobileAds.js';
 import { setupSky } from '../stickySky/stickySky.js';
 
-const callAds = () => {
+const seznamAds = () => {
 	if (window.innerWidth >= 990) {
 		setupSky({ side: 'right', top: 325 });
 		callDesktop();
@@ -11,4 +11,4 @@ const callAds = () => {
 	}
 };
 
-export default callAds;
+export default seznamAds;
