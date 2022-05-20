@@ -30,7 +30,6 @@ const deploayDesktopAds = () => {
 	}
 	if (zones.topSponzor) {
 		debug('Deploying TopSponzor');
-		zones.topSponzor.style.left = 0;
 		const topSponzor = ads.topSponzor;
 		appendAd(topSponzor, zones.topSponzor);
 	}
