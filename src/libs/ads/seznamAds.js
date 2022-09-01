@@ -1,12 +1,13 @@
 import callDesktop from './seznamDesktopAds.js';
 import callMobile from './seznamMobileAds.js';
 import { setupSky } from '../stickySky/stickySky.js';
+import { VIEWPORT_BREAKPOINT } from '../../constants.js';
 
 const seznamAds = () => {
-	if (window.innerWidth >= 990) {
+	if (window.innerWidth >= VIEWPORT_BREAKPOINT) {
 		setupSky({ side: 'right', top: 325 });
 		callDesktop();
-	} else if (window.innerWidth < 990) {
+	} else {
 		callMobile();
 	}
 };

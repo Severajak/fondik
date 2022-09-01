@@ -21,9 +21,9 @@
 		"url": "https://github.com/DaveVodrazka/fondik/issues"
 	},
 	"homepage": "https://github.com/DaveVodrazka/fondik#readme",
-  "browserslist": [
-    "defaults"
-  ],
+	"browserslist": [
+		"defaults"
+	],
 	"devDependencies": {
 		"@babel/preset-env": "^7.18.0",
 		"babel-loader": "^8.2.5",

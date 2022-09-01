@@ -14,12 +14,12 @@ import {
 } from '../../constants.js';
 
 const apendListOfAds = (activeZones) => {
-  const zones = getZones();
+	const zones = getZones();
 	activeZones.forEach((zoneName) => {
-    const adCode = adCodes[zoneName];
-    const zone = zones[zoneName];
-    debug('Deploying Google ads:');
-    debug({zoneName, adCode, zone});
+		const adCode = adCodes[zoneName];
+		const zone = zones[zoneName];
+		debug('Deploying Google ads:');
+		debug({ zoneName, adCode, zone });
 		if (adCode && zone) {
 			appendAd(adCode, zone);
 		}
@@ -27,7 +27,7 @@ const apendListOfAds = (activeZones) => {
 };
 
 const deployDesktopAds = () => {
-  const zones = getZones();
+	const zones = getZones();
 	const activeZones = [RECTANGLE, RECTANGLE2, SKY_SCRAPER];
 	debug('Deploying Google desktop ads to these zones:');
 	debug(activeZones);
