@@ -43,6 +43,9 @@ const appendSingleBodyPart = (zone, positions) => {
 	scriptTag.text = `googletag.cmd.push(function(){googletag.display('${currentAdCode}')});`;
 	root.appendChild(scriptTag);
 	elem.appendChild(root);
+
+	// make sure ad is visible
+	elem.style.display = 'block';
 };
 
 const bodyFunc = (zones) => {
