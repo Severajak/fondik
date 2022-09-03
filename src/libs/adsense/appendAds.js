@@ -2,19 +2,77 @@ import { getZones } from '../adsByGoogle/adZones.js';
 import { adCodes, getAdCode, getSlotDefinition } from './adCodes.js';
 import { debug } from '../debug.js';
 
-const headFunc = (zones) => {
-	const callbacks = [];
+// const headFunc = (zones) => {
+// 	const callbacks = [];
+// 	window.googletag = window.googletag || { cmd: [] };
+// 	zones.forEach((zone) => {
+// 		const { code, sizes, name } = adCodes[zone];
+// 		callbacks.push(() => {
+// 			googletag
+// 				.defineSlot(getSlotDefinition(name), sizes, getAdCode(code))
+// 				.addService(googletag.pubads());
+// 		});
+// 	});
+//   debug('AdSense callbacks:');
+//   debug(callbacks);
+// 	googletag.cmd.push(() => {
+// 		callbacks.map((c) => c());
+// 		googletag.pubads().enableSingleRequest();
+// 		googletag.enableServices();
+// 	});
+// };
+
+const headFunc = () => {
 	window.googletag = window.googletag || { cmd: [] };
-	zones.forEach((zone) => {
-		const { code, sizes, name } = adCodes[zone];
-		callbacks.push(() => {
-			googletag
-				.defineSlot(getSlotDefinition(name), sizes, getAdCode(code))
-				.addService(googletag.pubads());
-		});
-	});
-	googletag.cmd.push(() => {
-		callbacks.map((c) => c());
+	googletag.cmd.push(function () {
+		googletag
+			.defineSlot(
+				'/22754793592/desktop_article_1bottom_300x250',
+				[
+					[250, 250],
+					[300, 250],
+					[336, 280],
+					[750, 100],
+					[750, 200],
+					[750, 300],
+				],
+				'div-gpt-ad-1632608-2'
+			)
+			.addService(googletag.pubads());
+		googletag
+			.defineSlot(
+				'/22754793592/desktop_article_1sidebar_300x250',
+				[
+					[250, 250],
+					[300, 250],
+				],
+				'div-gpt-ad-1632608-3'
+			)
+			.addService(googletag.pubads());
+		googletag
+			.defineSlot(
+				'/22754793592/desktop_article_2bottom_300x250',
+				[
+					[250, 250],
+					[300, 250],
+					[336, 280],
+					[750, 100],
+					[750, 200],
+					[750, 300],
+				],
+				'div-gpt-ad-1632608-4'
+			)
+			.addService(googletag.pubads());
+		googletag
+			.defineSlot(
+				'/22754793592/desktop_article_2sidebar_300x250',
+				[
+					[250, 250],
+					[300, 250],
+				],
+				'div-gpt-ad-1632608-5'
+			)
+			.addService(googletag.pubads());
 		googletag.pubads().enableSingleRequest();
 		googletag.enableServices();
 	});
@@ -56,6 +114,6 @@ const bodyFunc = (zones) => {
 };
 
 export const appendAdsenseAds = (zones) => {
-	headFunc(zones);
+	headFunc();
 	bodyFunc(zones);
 };
